@@ -1,32 +1,27 @@
-package com.almacen.api.models;
+package com.almacen.api.payloads.Dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Entity
-@NoArgsConstructor
+import java.io.Serializable;
+
+@Data
 @AllArgsConstructor
-@Setter
-@Getter
-public class proveedor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProveedor;
+@NoArgsConstructor
+public class ProveedorDto implements Serializable {
+
+    private int id;
+
     @NotBlank
     @Size(min = 2, max = 100, message = "El nombre debe tener min 2 caracteres y maximo 100")
     private String nombre;
 
     @NotBlank
-    @Size(min = 2, max = 100, message = "La marxa debe tener min 2 y maximo 100")
+    @Size(min = 2, max = 100, message = "La marca debe tener min 2 y maximo 100")
     private String empresa;
 
     @Pattern(regexp = "\\d{10,15}", message = "El teléfono debe contener solo números y tener entre 10 y 15 dígitos")

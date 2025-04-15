@@ -14,10 +14,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class producto {
+public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProducto;
+    private int id_producto;
 
     @NotBlank
     @Size(min = 2, max = 100, message = "El nombre debe tener minimo dos caracteres y maximo 100")
@@ -34,5 +34,6 @@ public class producto {
     @DecimalMin(value =  "0.0", inclusive = false, message = "El precio debe ser mayor a 0")
     private double precio;
 
-    private int cantidadDisponible;
+    @DecimalMin(value =  "0", inclusive = false, message = "La cantidad debe ser mayor a 0")
+    private int cantidad_disponible;
 }
