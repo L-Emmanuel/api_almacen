@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface inventarioService {
-    Pagination<InventarioDto> findAll();
+    Pagination<InventarioDto> findAll(int page, int size);
     InventarioDto findById(int id);
-    InventarioDto save(Inventario inventario);
-    InventarioDto update(Inventario inventario);
+    InventarioDto save(InventarioDto inventario);
+    InventarioDto update(int id,InventarioDto inventario);
 
 }

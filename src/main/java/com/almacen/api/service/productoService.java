@@ -7,9 +7,9 @@ import com.almacen.api.payloads.Dto.ProductoDto;
 import java.util.List;
 
 public interface productoService {
-    Pagination<ProductoDto> findAll();
+    Pagination<ProductoDto> findAll(int page, int size);
     ProductoDto findById(int id);
     ProductoDto save(ProductoDto producto);
-    ProductoDto uodate(ProductoDto producto, int id);
+    ProductoDto update(ProductoDto producto, int id);
 
 }

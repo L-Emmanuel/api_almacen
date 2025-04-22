@@ -1,6 +1,5 @@
 package com.almacen.api.models;
 
-import com.almacen.api.utils.ENUMS.Movimientos;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
@@ -9,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -27,17 +27,13 @@ public class Movimiento {
 
     @Enumerated(EnumType.STRING)
     @NotNull(message = "El tipo es obligatorio")
-    private Movimientos movimientos;
+    private com.almacen.api.utils.ENUMS.tipo_movimiento tipo_movimiento;
 
-
+    private LocalDate fecha_movimiento;
     private String comentario;
 
-    @ManyToMany
-    @JoinTable(
-            name = "movimiento_producto",
-            joinColumns = @JoinColumn(name = "id_movimiento"),
-            inverseJoinColumns = @JoinColumn(name = "id_producto")
-    )
-    private List<Producto> producto;
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    private Producto producto;
 
 }

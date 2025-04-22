@@ -1,6 +1,7 @@
 package com.almacen.api.payloads.Dto;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 

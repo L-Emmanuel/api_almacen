@@ -7,7 +7,7 @@ import com.almacen.api.payloads.Dto.ProveedorDto;
 import java.util.List;
 
 public interface proveedorService {
-    Pagination<ProveedorDto> findAll();
+    Pagination<ProveedorDto> findAll(int page, int size);
     ProveedorDto findById(int id);
     ProveedorDto save(ProveedorDto proveedor);
     ProveedorDto update(ProveedorDto proveedor, int id);

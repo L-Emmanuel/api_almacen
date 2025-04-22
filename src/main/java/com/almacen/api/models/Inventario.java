@@ -2,10 +2,7 @@ package com.almacen.api.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
+@EqualsAndHashCode
 public class Inventario {
 
     @Id
@@ -29,11 +27,11 @@ public class Inventario {
     @DecimalMin(value =  "0", inclusive = false, message = "La cantidad actual debe ser mayor a 0")
     private int cantidad_actual;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_producto")
-    private List<Producto> producto;
+    private Producto producto;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_proveedor")
     private Proveedor proveedor;
 }

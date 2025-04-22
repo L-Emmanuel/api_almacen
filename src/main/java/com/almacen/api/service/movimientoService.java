@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface movimientoService{
-    Pagination<MovimientoDto> findAll();
+    Pagination<MovimientoDto> findAll(int page, int size);
     MovimientoDto findById(int id);
-    MovimientoDto save(Movimiento movimiento);
-    MovimientoDto update(Movimiento movimiento, int id);
+    MovimientoDto save(MovimientoDto movimiento);
+    MovimientoDto update(MovimientoDto movimiento, int id);
 
 }

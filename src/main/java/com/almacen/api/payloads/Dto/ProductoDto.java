@@ -14,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class ProductoDto implements Serializable {
 
-    private int id;
+    private int id_producto;
 
     @NotBlank
     @Size(min = 2, max = 100, message = "El nombre debe tener minimo dos caracteres y maximo 100")
